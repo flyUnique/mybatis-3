@@ -15,5 +15,17 @@
  */
 /**
  * Type handlers.
+ * @see org.apache.ibatis.type.TypeHandler 类型处理接口类
+ * @see org.apache.ibatis.type.TypeReference 泛型原始类型处理
+ * @see org.apache.ibatis.type.TypeHandlerRegistry 类型处理注册中心
+ * @see org.apache.ibatis.type.UnknownTypeHandler 未知类型处理器
+ *
+ * @see org.apache.ibatis.type.SimpleTypeRegistry 简单类型注册中心
+ * @see org.apache.ibatis.type.TypeAliasRegistry 类型别名注册中心
+ * @see org.apache.ibatis.type.Java8TypeHandlersRegistrar java8 日期类型转换注册
+ *
+ * @see org.apache.ibatis.type.ByteArrayUtils 字符数组包装类型转换工具
+ * @see org.apache.ibatis.type.JdbcType jdbc类型枚举
+ * @see org.apache.ibatis.type.TypeException 类型处理异常类
  */
 package org.apache.ibatis.type;

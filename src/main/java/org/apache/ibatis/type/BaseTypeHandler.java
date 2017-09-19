@@ -26,6 +26,9 @@ import org.apache.ibatis.session.Configuration;
 /**
  * @author Clinton Begin
  * @author Simone Tripodi
+ *
+ * 基本类型处理器----针对类型处理器接口实现了设置参数，以及得到返回值的null值处理
+ * 非null值处理及具体情况在子类中实现
  */
 public abstract class BaseTypeHandler<T> extends TypeReference<T> implements TypeHandler<T> {
 

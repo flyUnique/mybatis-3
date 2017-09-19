@@ -15,5 +15,12 @@
  */
 /**
  * Base package. Contains the SqlSession.
+ *
+ * 核心：
+ *  @see org.apache.ibatis.session.Configuration mybatis配置中心
+ *
+ *  均持有 configuration对象
+ *  @see org.apache.ibatis.session.SqlSessionFactory session工厂
+ *  @see org.apache.ibatis.session.SqlSession session 每个session持有一个Excutor
  */
 package org.apache.ibatis.session;

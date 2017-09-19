@@ -34,6 +34,8 @@ import org.apache.ibatis.io.Resources;
 
 /**
  * @author Clinton Begin
+ *
+ * 类型别名注册中心
  */
 public class TypeAliasRegistry {
 
@@ -138,6 +140,10 @@ public class TypeAliasRegistry {
     }
   }
 
+  /**
+   * 通过类名或者注解为key设置别名
+   * @param type
+   */
   public void registerAlias(Class<?> type) {
     String alias = type.getSimpleName();
     Alias aliasAnnotation = type.getAnnotation(Alias.class);

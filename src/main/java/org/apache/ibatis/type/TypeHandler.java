@@ -22,15 +22,45 @@ import java.sql.SQLException;
 
 /**
  * @author Clinton Begin
+ * 类型处理接口类
  */
 public interface TypeHandler<T> {
 
+  /**
+   * 设置参数（按索引）
+   * @param ps 预处理器
+   * @param i 索引
+   * @param parameter 参数值
+   * @param jdbcType jdbc类型
+   * @throws SQLException
+   */
   void setParameter(PreparedStatement ps, int i, T parameter, JdbcType jdbcType) throws SQLException;
 
+  /**
+   * 根据列名得到结果值
+   * @param rs
+   * @param columnName
+   * @return
+   * @throws SQLException
+   */
   T getResult(ResultSet rs, String columnName) throws SQLException;
 
+  /**
+   * 根据索引得到结果值
+   * @param rs
+   * @param columnIndex
+   * @return
+   * @throws SQLException
+   */
   T getResult(ResultSet rs, int columnIndex) throws SQLException;
 
+  /**
+   * 根据索引得到存储过程的结果值
+   * @param cs
+   * @param columnIndex
+   * @return
+   * @throws SQLException
+   */
   T getResult(CallableStatement cs, int columnIndex) throws SQLException;
 
 }
