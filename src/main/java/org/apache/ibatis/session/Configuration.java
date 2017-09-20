@@ -83,6 +83,7 @@ import org.apache.ibatis.scripting.LanguageDriver;
 import org.apache.ibatis.scripting.LanguageDriverRegistry;
 import org.apache.ibatis.scripting.defaults.RawLanguageDriver;
 import org.apache.ibatis.scripting.xmltags.XMLLanguageDriver;
+import org.apache.ibatis.session.defaults.DefaultSqlSessionFactory;
 import org.apache.ibatis.transaction.Transaction;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.apache.ibatis.transaction.managed.ManagedTransactionFactory;
@@ -564,8 +565,21 @@ public class Configuration {
     return newExecutor(transaction, defaultExecutorType);
   }
 
+  /**
+   * @see DefaultSqlSessionFactory#openSession()
+   * 默认session工厂创建session时调用此方法构造初始化执行器
+   *  1 、 初始化执行器类型
+   *  2 、 获取对应类型具体执行器
+   *  3 、 允许缓存， 则用 缓存执行器 对 获取的执行器进行包装
+   * @see Executor 执行器
+   * @param transaction
+   * @param executorType
+   * @return
+   */
   public Executor newExecutor(Transaction transaction, ExecutorType executorType) {
+    // 初始化执行器类型
     executorType = executorType == null ? defaultExecutorType : executorType;
+    // 如为null，则设置为 ExecutorType.SIMPLE 类型
     executorType = executorType == null ? ExecutorType.SIMPLE : executorType;
     Executor executor;
     if (ExecutorType.BATCH == executorType) {

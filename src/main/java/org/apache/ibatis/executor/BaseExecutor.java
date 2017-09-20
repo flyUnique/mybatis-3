@@ -113,6 +113,7 @@ public abstract class BaseExecutor implements Executor {
     if (closed) {
       throw new ExecutorException("Executor was closed.");
     }
+    // 清除缓存
     clearLocalCache();
     return doUpdate(ms, parameter);
   }
@@ -144,15 +145,19 @@ public abstract class BaseExecutor implements Executor {
       throw new ExecutorException("Executor was closed.");
     }
     if (queryStack == 0 && ms.isFlushCacheRequired()) {
+      // 清除缓存
       clearLocalCache();
     }
     List<E> list;
     try {
       queryStack++;
+      // 读缓存
       list = resultHandler == null ? (List<E>) localCache.getObject(key) : null;
       if (list != null) {
+        // 处理返回值
         handleLocallyCachedOutputParameters(ms, key, parameter, boundSql);
       } else {
+        // 走数据库查询
         list = queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSql);
       }
     } finally {
@@ -166,6 +171,7 @@ public abstract class BaseExecutor implements Executor {
       deferredLoads.clear();
       if (configuration.getLocalCacheScope() == LocalCacheScope.STATEMENT) {
         // issue #482
+        // 清除缓存
         clearLocalCache();
       }
     }
@@ -321,12 +327,15 @@ public abstract class BaseExecutor implements Executor {
     List<E> list;
     localCache.putObject(key, EXECUTION_PLACEHOLDER);
     try {
+      // 具体查询逻辑 抽象 待实现
       list = doQuery(ms, parameter, rowBounds, resultHandler, boundSql);
     } finally {
       localCache.removeObject(key);
     }
+    // 加入缓存
     localCache.putObject(key, list);
     if (ms.getStatementType() == StatementType.CALLABLE) {
+      // 存储过程 添加 出参 缓存
       localOutputParameterCache.putObject(key, parameter);
     }
     return list;
