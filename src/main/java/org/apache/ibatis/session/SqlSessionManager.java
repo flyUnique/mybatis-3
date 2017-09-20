@@ -35,6 +35,10 @@ import org.apache.ibatis.reflection.ExceptionUtil;
 public class SqlSessionManager implements SqlSessionFactory, SqlSession {
 
   private final SqlSessionFactory sqlSessionFactory;
+  /**
+   * 当前线程
+   * @see #getConfiguration() 后，根据设置的sqlSession 生成代理，实际使用还是设置在ThreadLocal中的 sqlSession
+    */
   private final SqlSession sqlSessionProxy;
 
   private final ThreadLocal<SqlSession> localSqlSession = new ThreadLocal<SqlSession>();

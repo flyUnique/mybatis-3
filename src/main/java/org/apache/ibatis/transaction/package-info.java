@@ -15,5 +15,10 @@
  */
 /**
  * Base package for transactions.
+ * @see org.apache.ibatis.transaction.Transaction 事务
+ * @see org.apache.ibatis.transaction.TransactionFactory 事务工厂
+ *
+ * @see org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory jdbc事务工厂
+ * @see org.apache.ibatis.transaction.jdbc.JdbcTransaction jdbc事务实现
  */
 package org.apache.ibatis.transaction;

@@ -12,6 +12,17 @@
  *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
+ *
+ *    @see org.apache.ibatis.mapping.MappedStatement
+ *    @see org.apache.ibatis.mapping.ParameterMap
+ *    @see org.apache.ibatis.mapping.ParameterMapping
+ *
+ *    @see org.apache.ibatis.mapping.ResultMap
+ *    @see org.apache.ibatis.mapping.ResultMapping
+ *
+ *    @see org.apache.ibatis.mapping.SqlSource
+ *
+ *    @see org.apache.ibatis.executor.keygen.KeyGenerator
  */
 /**
  * TODO fillme.

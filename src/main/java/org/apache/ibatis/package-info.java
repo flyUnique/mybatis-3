@@ -15,5 +15,26 @@
  */
 /**
  * The MyBatis data mapper framework makes it easier to use a relational database with object-oriented applications.
+ *
+ * @see org.apache.ibatis.session.SqlSessionFactory
+ * @see org.apache.ibatis.session.SqlSession#getConfiguration()
+ *
+ * @see org.apache.ibatis.session.Configuration 配置中心
+ * @see org.apache.ibatis.mapping.Environment
+ *
+ * @see org.apache.ibatis.plugin.InterceptorChain 过滤器链
+ *
+ * @see org.apache.ibatis.type.TypeHandlerRegistry 类型处理器注册中心
+ * @see org.apache.ibatis.binding.MapperRegistry
+ *
+ * @see org.apache.ibatis.executor.Executor 执行器
+ *
+ * @see org.apache.ibatis.mapping.MappedStatement
+ * @see org.apache.ibatis.mapping.ResultMap
+ * @see org.apache.ibatis.mapping.ParameterMap
+ *
+ * @see org.apache.ibatis.executor.keygen.KeyGenerator
+ *
+ * @see org.apache.ibatis.session.ResultHandler
  */
 package org.apache.ibatis;

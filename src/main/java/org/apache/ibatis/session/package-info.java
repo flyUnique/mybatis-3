@@ -18,9 +18,19 @@
  *
  * 核心：
  *  @see org.apache.ibatis.session.Configuration mybatis配置中心
+ *  @see org.apache.ibatis.session.Configuration#newExecutor(org.apache.ibatis.transaction.Transaction, org.apache.ibatis.session.ExecutorType)
  *
- *  均持有 configuration对象
- *  @see org.apache.ibatis.session.SqlSessionFactory session工厂
- *  @see org.apache.ibatis.session.SqlSession session 每个session持有一个Excutor
+ *  @see org.apache.ibatis.session.SqlSessionManager
+ *  @see org.apache.ibatis.session.SqlSessionFactoryBuilder 创建工厂
+ *  @see org.apache.ibatis.session.SqlSessionFactory#getConfiguration()  session工厂
+ *  @see org.apache.ibatis.session.SqlSession#getConfiguration()  session 每个session持有一个Excutor
+ *
+ *  @see org.apache.ibatis.session.defaults.DefaultSqlSession 默认sqlSession实现
+ *  数据库操作实际三个方法
+ *  @see org.apache.ibatis.session.defaults.DefaultSqlSession#selectList(java.lang.String, java.lang.Object, org.apache.ibatis.session.RowBounds)
+ *  @see org.apache.ibatis.session.defaults.DefaultSqlSession#select(java.lang.String, java.lang.Object, org.apache.ibatis.session.RowBounds, org.apache.ibatis.session.ResultHandler)
+ *  @see org.apache.ibatis.session.defaults.DefaultSqlSession#update(java.lang.String, java.lang.Object)
+ *
+ *  @see org.apache.ibatis.executor.Executor 执行器接口，定义了数据库操作具体方法，参照实现
  */
 package org.apache.ibatis.session;
